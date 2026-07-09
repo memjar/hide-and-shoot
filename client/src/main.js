@@ -1,7 +1,10 @@
 import * as THREE from 'three';
 import { io } from 'socket.io-client';
 
-const socket = io(window.location.origin);
+const SERVER_URL = window.location.hostname === 'localhost' || window.location.hostname.startsWith('192.168')
+  ? window.location.origin
+  : (window.__HAS_SERVER_URL || window.location.origin);
+const socket = io(SERVER_URL);
 let myId = null;
 let roomState = null;
 let isSeeker = false;

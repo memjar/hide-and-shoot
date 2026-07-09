@@ -1,0 +1,8 @@
+{
+  "buildCommand": "cd client && npm install && npx vite build",
+  "outputDirectory": "client/dist",
+  "framework": null,
+  "rewrites": [
+    { "source": "/socket.io/(.*)", "destination": "https://hideandshoot-server.fly.dev/socket.io/$1" }
+  ]
+}
